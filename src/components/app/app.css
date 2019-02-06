@@ -1,0 +1,8 @@
+.border {
+    border: 1px solid white;
+}
+.copyright {
+    opacity: .3;    
+    position: absolute;
+    top: 95%;
+}
