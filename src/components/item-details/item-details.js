@@ -44,7 +44,7 @@ export default class ItemDetails extends Component {
         this.setState({ loading: true });
         const { item, getData, getImageUrl } = this.props;
         if (!item) return;
-        console.log('item=', item);
+        // console.log('item=', item);
         getData(item)
             .then((item) => {
                 this.setState({

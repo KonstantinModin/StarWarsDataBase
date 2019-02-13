@@ -5,7 +5,7 @@ import PlanetDetails from '../planet-details';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
 import PeoplePage from '../people-page';
-import ItemList from '../item-list';
+import ItemList from '../item-list/';
 import ItemDetails, { Record } from '../item-details/item-details';
 import Row from '../row';
 
@@ -21,11 +21,12 @@ export default class App extends Component {
     };    
     
     render() {
-        const { getPerson, getStarship, getPersonImage, getStarshipImage } = this.swapiService;
+        const { getPerson, getStarship, getPersonImage, getStarshipImage,
+            getAllPeople, getAllPlanets } = this.swapiService;
 
         const personDetails = (
             <ItemDetails 
-                item={11}
+                item={12}
                 getData={getPerson}
                 getImageUrl={getPersonImage}>
                 <Record field="gender" label="Gender" />
@@ -37,7 +38,7 @@ export default class App extends Component {
 
         const starshipDetails = (
             <ItemDetails 
-                item={5}
+                item={9}
                 getData={getStarship}
                 getImageUrl={getStarshipImage}>
                 <Record field="model" label="Model" />
@@ -52,10 +53,22 @@ export default class App extends Component {
                 <Header />
                 <RandomPlanet />
                 {/* <PeoplePage />                */}
-                <Row
-                    left={personDetails}
-                    right={starshipDetails} />
-              
+                {/* <Row */}
+                    {/* left={personDetails} */}
+                    {/* right={starshipDetails} /> */}
+                <ItemList
+                    getData={getAllPeople}
+                    onItemSelected={() => {}}>
+                    
+                    { ({name}) => <span>{name}</span> }
+                </ItemList>
+
+                <ItemList 
+                    getData={getAllPlanets}
+                    onItemSelected={() => {}}>
+                    
+                    { ({name}) => <span>{name}</span> }
+                </ItemList>
                 <div className="copyright">Copyright © 2019 Konstantin Modin 
                 All Rights Reserved. Designed with React</div>
             </div>
