@@ -32,9 +32,23 @@ export default class App extends Component {
             <div className="stardb-app">
                 <Header />
                 <RandomPlanet />
-                <PersonDetails itemId={11} />
-                <PlanetDetails itemId={5} />
-                <StarshipDetails itemId={9} />
+
+                <PersonDetails item={11}>
+                    <Record field="gender" label="Gender" />
+                    <Record field="eyeColor" label="Eye Color" />        
+                </PersonDetails>
+
+                <PlanetDetails item={5}>
+                    <Record field="population" label="Population" />
+                    <Record field="rotationPeriod" label="Rotation Period" />
+                    <Record field="diameter" label="Diameter" />                
+                </PlanetDetails>
+
+                <StarshipDetails item={9}>
+                    <Record field="model" label="Model" />
+                    <Record field="length" label="Length" />
+                    <Record field="costInCredits" label="Cost" />                
+                </StarshipDetails>
                 
                 <PersonList>                 
                     { ({name}) => <span>{name}</span> }

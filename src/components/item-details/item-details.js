@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import ErrorButton from '../error-button';
 
 import './item-details.css';
@@ -18,8 +17,9 @@ export {
     Record
 };
 
-const ItemDetails = ({ image, name, children, item }) => {    
-        
+const ItemDetails = (props) => {    
+    const { image, name, children, item } = props;
+    
     return (
         <div className="item-details card">
             <img className="item-image"
