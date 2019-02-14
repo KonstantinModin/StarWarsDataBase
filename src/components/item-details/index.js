@@ -1,3 +1,4 @@
-import ItemDetails from './item-details.js';
+import ItemDetails, {Record} from './item-details.js';
 
 export default ItemDetails;
+export {Record};
