@@ -61,27 +61,32 @@ export default class SwapiService {
     };
 
     _transformPlanet = (planet) => {        
+        const id = this._extractId(planet);
         return {
-            id: this._extractId(planet),
+            id: {id},
             name: planet.name,
             population: planet.population,
             rotationPeriod: planet.rotation_period,
-            diameter: planet.diameter
+            diameter: planet.diameter,
+            image: this.getPlanetImage({id})
         }
     };
     _transformPerson = (person) => {        
+        const id = this._extractId(person);
         return {
-            id: this._extractId(person),
+            id: {id},
             name: person.name,
             gender: person.gender,
             birthYear: person.birth_year,
-            eyeColor: person.eye_color
+            eyeColor: person.eye_color,
+            image: this.getPersonImage({id})
         }
     };
 
     _transformStarship = (starship) => {        
+        const id = this._extractId(starship);
         return {
-            id: this._extractId(starship),
+            id: {id},
             name: starship.name,
             model: starship.model,
             manufacturer: starship.manufacturer,
@@ -89,7 +94,8 @@ export default class SwapiService {
             length: starship.length,
             crew: starship.crew,
             passengers: starship.passengers,
-            cargoCapacity: starship.cargoCapacity
+            cargoCapacity: starship.cargoCapacity,
+            image: this.getStarshipImage({id})
         }
     };
 }

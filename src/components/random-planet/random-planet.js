@@ -62,11 +62,11 @@ export default class RandomPlanet extends Component {
 };
 
 const PlanetView = ({ planet }) => {
-    const { id, name, population, rotationPeriod, diameter } = planet;
+    const { name, population, rotationPeriod, diameter, image } = planet;
     return (        
             <div className="random-planet jumbotron rounded">
                 <img className="planet-image"
-                    src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}
+                    src={image}
                     alt="planet" />
                 <div>
                     <h4>{name}</h4>
