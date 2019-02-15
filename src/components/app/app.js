@@ -50,17 +50,10 @@ export default class App extends Component {
                     <Record field="costInCredits" label="Cost" />                
                 </StarshipDetails>
                 
-                <PersonList>                 
-                    { ({name}) => <span>{name}</span> }
-                </PersonList>
-                
-                <StarshipList>                 
-                    { ({name}) => <span>{name}</span> }
-                </StarshipList>
-
-                <PlanetList>                 
-                    { ({name}) => <span>{name}</span> }
-                </PlanetList>
+                <PersonList/>
+                <StarshipList/>
+                <PlanetList/>                 
+                    
                 <div className="copyright">Copyright © 2019 Konstantin Modin 
                 All Rights Reserved. Designed with React</div>
             </div>
