@@ -4,7 +4,9 @@ import ErrorButton from '../error-button';
 
 import './item-details.css';
 
-const Record = ({ item, field, label}) => {
+const Record = (props) => {
+    const { item, field, label} = props;
+    
     return (
         <li className="list-group-item">
             <span className="term">{label}</span>

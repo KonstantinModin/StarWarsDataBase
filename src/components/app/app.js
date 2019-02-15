@@ -4,7 +4,7 @@ import Header from '../header';
 import RandomPlanet from '../random-planet';
 // import PeoplePage from '../people-page';
 // import ItemList from '../item-list/';
-import ItemDetails, { Record } from '../item-details/item-details';
+
 // import Row from '../row';
 import SwapiService from '../../services/swapi-service';
 import {
@@ -33,22 +33,9 @@ export default class App extends Component {
                 <Header />
                 <RandomPlanet />
 
-                <PersonDetails item={11}>
-                    <Record field="gender" label="Gender" />
-                    <Record field="eyeColor" label="Eye Color" />        
-                </PersonDetails>
-
-                <PlanetDetails item={5}>
-                    <Record field="population" label="Population" />
-                    <Record field="rotationPeriod" label="Rotation Period" />
-                    <Record field="diameter" label="Diameter" />                
-                </PlanetDetails>
-
-                <StarshipDetails item={9}>
-                    <Record field="model" label="Model" />
-                    <Record field="length" label="Length" />
-                    <Record field="costInCredits" label="Cost" />                
-                </StarshipDetails>
+                <PersonDetails item={11}/>
+                <PlanetDetails item={4}/>
+                <StarshipDetails item={9}/>                    
                 
                 <PersonList/>
                 <StarshipList/>
