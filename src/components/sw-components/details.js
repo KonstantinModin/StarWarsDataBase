@@ -1,11 +1,8 @@
 import React from 'react';
 import ItemDetails, { Record } from '../item-details';
 import { WithDataDetails } from '../hoc-helper/';
-import SwapiService from '../../services/swapi-service';
+import { withSwapiService } from '../hoc-helper';
 
-const swapiService = new SwapiService();
-
-const { getPerson, getPlanet, getStarship } = swapiService;
 
 const personWithRecord = (Wrapped) => {
     return (props) => {        
@@ -15,6 +12,12 @@ const personWithRecord = (Wrapped) => {
                 <Record {...props} field="eyeColor" label="Eye Color" /> 
             </Wrapped>
         );
+    };
+};
+
+const mapPersonMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getPerson
     };
 };
 
@@ -28,7 +31,13 @@ const planetWithRecord = (Wrapped) => {
             </Wrapped>
         );
     };
-};  
+};
+
+const mapPlanetMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getPlanet
+    };
+};
 
 const starshipWithRecord = (Wrapped) => {
     return (props) => {        
@@ -42,8 +51,22 @@ const starshipWithRecord = (Wrapped) => {
     };
 };
 
-const PersonDetails = WithDataDetails(personWithRecord(ItemDetails), getPerson); 
-const PlanetDetails = WithDataDetails(planetWithRecord(ItemDetails), getPlanet);
-const StarshipDetails = WithDataDetails(starshipWithRecord(ItemDetails), getStarship);
+const mapStarshipMethodsToProps = (swapiService) => {
+    return {
+        getData: swapiService.getStarship
+    };
+};
+
+const PersonDetails = withSwapiService(
+                        WithDataDetails(personWithRecord(ItemDetails)),
+                        mapPersonMethodsToProps);
+
+const PlanetDetails = withSwapiService(
+                        WithDataDetails(planetWithRecord(ItemDetails)),
+                        mapPlanetMethodsToProps);
+
+const StarshipDetails = withSwapiService(
+                            WithDataDetails(starshipWithRecord(ItemDetails)),
+                            mapStarshipMethodsToProps);
 
 export { PersonDetails, PlanetDetails, StarshipDetails };
