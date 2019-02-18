@@ -1,20 +1,10 @@
 import React, {Component} from 'react';
 import Header from '../header';
 import RandomPlanet from '../random-planet';
-
 import SwapiService from '../../services/swapi-service';
 import DummySwapiService from '../../services/dummy-swapi-service';
 import { SwapiServiceProvider } from '../swapi-service-context';
-import { PeoplePage } from '../pages';
-import Row from '../row';
-import {
-    PersonDetails,
-    PlanetDetails,
-    StarshipDetails,
-    PersonList,
-    PlanetList,
-    StarshipList
-} from '../sw-components';
+import { PeoplePage, PlanetsPage, StarshipsPage } from '../pages';
 
 import './app.css';
 
@@ -42,15 +32,8 @@ export default class App extends Component {
                     <Header onServiceChange={this.onServiceChange}/>
                     <RandomPlanet />
                     <PeoplePage/>
-                    <Row
-                        left={<PlanetList/>}
-                        right={<PlanetDetails item={4}/>}
-                    />
-                    <Row
-                        left={<StarshipList/>}
-                        right={<StarshipDetails item={9}/>}
-                    />       
-                        
+                    <PlanetsPage/>
+                    <StarshipsPage/>
                     <div className="copyright">Copyright © 2019 Konstantin Modin 
                     All Rights Reserved. Designed with React</div>
                 </div>
