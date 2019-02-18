@@ -12,7 +12,7 @@ const ItemList = (props) => {
         
         return (
             <li className="list-group-item"
-                key={Math.floor(Math.random()*1000+1)}
+                key={id}
                 onClick={() => onItemSelected(id)}>
                 {label}
             </li>

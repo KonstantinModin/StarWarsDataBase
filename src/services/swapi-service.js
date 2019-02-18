@@ -39,17 +39,17 @@ export default class SwapiService {
         return this._transformStarship(starship);
     }
 
-    getPersonImage = ({ id }) => {
+    getPersonImage = (id) => {
         return (
             `${this._imageBase}/characters/${id}.jpg`
         )
     }
-    getStarshipImage = ({ id }) => {
+    getStarshipImage = (id) => {
         return (
             `${this._imageBase}/starships/${id}.jpg`
         )
     }
-    getPlanetImage = ({ id }) => {
+    getPlanetImage = (id) => {
         return (
             `${this._imageBase}/planets/${id}.jpg`
         )
@@ -61,32 +61,32 @@ export default class SwapiService {
     };
 
     _transformPlanet = (planet) => {        
-        const id = this._extractId(planet);
+        const i = this._extractId(planet);        
         return {
-            id: {id},
+            id: i,
             name: planet.name,
             population: planet.population,
             rotationPeriod: planet.rotation_period,
             diameter: planet.diameter,
-            image: this.getPlanetImage({id})
+            image: this.getPlanetImage(i)
         }
     };
     _transformPerson = (person) => {        
-        const id = this._extractId(person);
+        const i = this._extractId(person);        
         return {
-            id: {id},
+            id: i,
             name: person.name,
             gender: person.gender,
             birthYear: person.birth_year,
             eyeColor: person.eye_color,
-            image: this.getPersonImage({id})
+            image: this.getPersonImage(i)
         }
     };
 
     _transformStarship = (starship) => {        
-        const id = this._extractId(starship);
+        const i = this._extractId(starship);       
         return {
-            id: {id},
+            id: i,
             name: starship.name,
             model: starship.model,
             manufacturer: starship.manufacturer,
@@ -95,7 +95,7 @@ export default class SwapiService {
             crew: starship.crew,
             passengers: starship.passengers,
             cargoCapacity: starship.cargoCapacity,
-            image: this.getStarshipImage({id})
+            image: this.getStarshipImage(i)
         }
     };
 }
