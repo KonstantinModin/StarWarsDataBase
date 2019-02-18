@@ -5,6 +5,7 @@ import RandomPlanet from '../random-planet';
 import SwapiService from '../../services/swapi-service';
 import DummySwapiService from '../../services/dummy-swapi-service';
 import { SwapiServiceProvider } from '../swapi-service-context';
+import Row from '../row';
 import {
     PersonDetails,
     PlanetDetails,
@@ -39,14 +40,18 @@ export default class App extends Component {
                 <div className="stardb-app">
                     <Header onServiceChange={this.onServiceChange}/>
                     <RandomPlanet />
-
-                    <PersonDetails item={11}/>
-                    <PlanetDetails item={4}/>
-                    <StarshipDetails item={9}/>                    
-                    
-                    <PersonList/>
-                    <StarshipList/>
-                    <PlanetList/>                 
+                    <Row 
+                        left={<PersonList/>}
+                        right={<PersonDetails item={11}/>}
+                    />
+                    <Row
+                        left={<PlanetList/>}
+                        right={<PlanetDetails item={4}/>}
+                    />
+                    <Row
+                        left={<StarshipList/>}
+                        right={<StarshipDetails item={9}/>}
+                    />       
                         
                     <div className="copyright">Copyright © 2019 Konstantin Modin 
                     All Rights Reserved. Designed with React</div>
