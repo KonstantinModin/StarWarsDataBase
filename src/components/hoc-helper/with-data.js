@@ -9,14 +9,23 @@ const withData = (View) => {
             data: null
         };
 
+        componentDidUpdate(prevProps) {
+            if (this.props.getData !== prevProps.getData) this.upDate();   
+        }
+        
         componentDidMount() {
+            this.upDate();
+        } 
+        
+        upDate() {
             this.props.getData()
                 .then((data) => {
                     this.setState({
                         data
                     });
                 });
-        }            
+
+        }
             
         render() {
             const { data } = this.state;

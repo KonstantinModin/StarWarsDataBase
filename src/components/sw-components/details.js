@@ -8,8 +8,8 @@ const personWithRecord = (Wrapped) => {
     return (props) => {        
         return (
             <Wrapped {...props}>
-                <Record {...props} field="gender" label="Gender" />
-                <Record {...props} field="eyeColor" label="Eye Color" /> 
+                <Record {...props} id="25" field="gender" label="Gender" />
+                <Record {...props} id="26" field="eyeColor" label="Eye Color" /> 
             </Wrapped>
         );
     };
@@ -25,9 +25,9 @@ const planetWithRecord = (Wrapped) => {
     return (props) => {        
         return (
             <Wrapped {...props}>
-                <Record {...props} field="population" label="Population" />
-                <Record {...props} field="rotationPeriod" label="Rotation Period" />
-                <Record {...props} field="diameter" label="Diameter" />
+                <Record {...props} id="31" field="population" label="Population" />
+                <Record {...props} id="32" field="rotationPeriod" label="Rotation Period" />
+                <Record {...props} id="33" field="diameter" label="Diameter" />
             </Wrapped>
         );
     };
@@ -43,9 +43,9 @@ const starshipWithRecord = (Wrapped) => {
     return (props) => {        
         return (
             <Wrapped {...props}>
-                <Record {...props} field="model" label="Model" />
-                <Record {...props} field="length" label="Length" />
-                <Record {...props} field="costInCredits" label="Cost" />
+                <Record {...props} id="43" field="model" label="Model" />
+                <Record {...props} id="44" field="length" label="Length" />
+                <Record {...props} id="45" field="costInCredits" label="Cost" />
             </Wrapped>
         );
     };

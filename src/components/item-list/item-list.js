@@ -9,10 +9,10 @@ const ItemList = (props) => {
     const items = data.map((item) => {
         const { id } = item;
         const label = renderLabel(item);
-    
+        
         return (
             <li className="list-group-item"
-                key={id}
+                key={Math.floor(Math.random()*1000+1)}
                 onClick={() => onItemSelected(id)}>
                 {label}
             </li>

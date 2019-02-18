@@ -15,7 +15,8 @@ const WithDataDetails = (View) => {
         }
 
         componentDidUpdate(prevProps) {
-            if (this.props.item !== prevProps.item) this.updateItem();            
+            if (this.props.item !== prevProps.item ||
+                this.props.getData !== prevProps.getData) this.updateItem();            
         }
         
         updateItem = () => {
