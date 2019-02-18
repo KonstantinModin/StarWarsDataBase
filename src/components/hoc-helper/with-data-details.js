@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Spinner from '../spinner';
+import ErrorBoundry from '../error-boundry';
 
 
 const WithDataDetails = (View) => {
@@ -39,7 +40,11 @@ const WithDataDetails = (View) => {
             const { name, image } = item;
             if (loading) return <Spinner />
 
-            return <View {...this.props} name={name} item={item} image={image}/>;
+            return (
+                <ErrorBoundry>
+                    <View {...this.props} name={name} item={item} image={image}/>
+                </ErrorBoundry>
+            );
         }
     }
 

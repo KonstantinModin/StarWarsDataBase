@@ -57,16 +57,16 @@ const mapStarshipMethodsToProps = (swapiService) => {
     };
 };
 
-const PersonDetails = withSwapiService(
-                        WithDataDetails(personWithRecord(ItemDetails)),
-                        mapPersonMethodsToProps);
+const PersonDetails = withSwapiService(mapPersonMethodsToProps)(
+                        WithDataDetails(
+                            personWithRecord(ItemDetails)));
 
-const PlanetDetails = withSwapiService(
-                        WithDataDetails(planetWithRecord(ItemDetails)),
-                        mapPlanetMethodsToProps);
+const PlanetDetails = withSwapiService(mapPlanetMethodsToProps)(
+                        WithDataDetails(
+                            planetWithRecord(ItemDetails)));
 
-const StarshipDetails = withSwapiService(
-                            WithDataDetails(starshipWithRecord(ItemDetails)),
-                            mapStarshipMethodsToProps);
+const StarshipDetails = withSwapiService(mapStarshipMethodsToProps)(
+                            WithDataDetails(
+                                starshipWithRecord(ItemDetails)));
 
 export { PersonDetails, PlanetDetails, StarshipDetails };
