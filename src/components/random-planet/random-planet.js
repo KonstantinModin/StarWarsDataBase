@@ -5,17 +5,32 @@ import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 
 export default class RandomPlanet extends Component {
+    
+    static defaultProps = {
+        updateInterval: 10000
+    };
+
+    static propTypes = {
+        updateInterval: (props, propName, componentName) => {
+            const value = props[propName];
+            if (typeof value === 'number' && !isNaN(value)) {
+                return null;
+            }
+            return new TypeError(`${componentName}: ${propName} must be number`);
+        }
+    };
+
     swapiService = new SwapiService();
     
     state = {
         planet: {},
-        loading: true
-              
+        loading: true              
     };
     
     componentDidMount() {
+        const { updateInterval } = this.props;
         this.updatePlanet();
-        this.interval = setInterval(this.updatePlanet, 4000);
+        this.interval = setInterval(this.updatePlanet, updateInterval);
     };
 
     onPlanetLoaded = (planet) => {
@@ -58,8 +73,8 @@ export default class RandomPlanet extends Component {
             </React.Fragment> 
         );
     };    
-    
 };
+
 
 const PlanetView = ({ planet }) => {
     const { name, population, rotationPeriod, diameter, image } = planet;

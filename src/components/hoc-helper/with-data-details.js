@@ -19,9 +19,13 @@ const WithDataDetails = (View) => {
             if (this.props.item !== prevProps.item ||
                 this.props.getData !== prevProps.getData) this.updateItem();            
         }
+
+        turnOnSpinner = () => {
+            this.setState({ loading: true });
+        }
         
         updateItem = () => {
-            this.setState({ loading: true });
+            this.turnOnSpinner();
             const { item } = this.props;
             
             if (!item) return;        
@@ -37,8 +41,8 @@ const WithDataDetails = (View) => {
         render() {
             const { item, loading } = this.state;        
             if (!item) return <span>Select a item from a list</span>;        
-            const { name, image } = item;
             if (loading) return <Spinner />
+            const { name, image } = item;
 
             return (
                 <ErrorBoundry>
