@@ -9,6 +9,7 @@ import ErrorBoundry from '../error-boundry';
 
 import './app.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { StarshipDetails } from '../sw-components';
 
 export default class App extends Component {
     
@@ -53,7 +54,12 @@ export default class App extends Component {
                                 path="/starships" 
                                 render={ () => <h2>Starships</h2> }
                                 exact />
-                            <Route path="/starships" component={StarshipsPage} />
+                            <Route path="/starships" exact component={StarshipsPage} />
+                            <Route  path="/starships/:id" 
+                                    render={({ match }) => {
+                                        const { id } = match.params;                                        
+                                        return <StarshipDetails item={id} />
+                                    }} />
                             
                             <div className="copyright">Copyright © 2019 Konstantin Modin 
                             All Rights Reserved. Designed with React</div>
