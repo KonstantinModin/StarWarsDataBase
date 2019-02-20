@@ -43,8 +43,8 @@ export default class App extends Component {
                             <Route 
                                 path="/people/" 
                                 render={ () => <h2>People</h2> }
-                                exact />
-                            <Route path="/people/" component={PeoplePage} />
+                                 />
+                            <Route path="/people/:id?" component={PeoplePage} />
                             <Route 
                                 path="/planets/" 
                                 render={ () => <h2>Planets</h2> }
