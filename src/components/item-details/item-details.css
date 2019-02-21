@@ -2,12 +2,12 @@
     display: flex;
     margin-top: 1rem;
     flex-direction: row;
-    padding: 1rem;
+    padding: 1rem;   
 }
 
 .item-details .item-image {
-    width: 15%;
-    height: 15%;
+    width: 45%;
+    height: 45%;
     border-radius: 10px;
 }
 

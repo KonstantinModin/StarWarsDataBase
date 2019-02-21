@@ -8,7 +8,7 @@ import { PeoplePage, PlanetsPage, StarshipsPage, LoginPage, SecretPage } from '.
 import ErrorBoundry from '../error-boundry';
 
 import './app.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
 
 export default class App extends Component {
@@ -44,40 +44,35 @@ export default class App extends Component {
                         <div className="stardb-app">
                             <Header onServiceChange={this.onServiceChange}/>
                             <RandomPlanet />
-                            <Route 
-                                path="/" 
-                                render={ () => <h2>Welcome to StarDB!</h2> }
-                                exact />
-                            <Route 
-                                path="/people/" 
-                                render={ () => <h2>People</h2> }
-                                 />
-                            <Route path="/people/:id?" component={PeoplePage} />
-                            <Route 
-                                path="/planets/" 
-                                render={ () => <h2>Planets</h2> }
-                                exact />
-                            <Route path="/planets/" component={PlanetsPage} />
-                            <Route 
-                                path="/starships/" 
-                                render={ () => <h2>Starships</h2> }
-                                exact />
-                            <Route path="/starships/" exact component={StarshipsPage} />
-                            <Route  path="/starships/:id" 
-                                    render={({ match }) => {
-                                        const { id } = match.params;                                        
-                                        return <StarshipDetails item={id} />
-                                    }} />
-                            <Route path="/login"
-                                    render={() => (
-                                        <LoginPage
-                                            isloggedIn={isloggedIn}
-                                            onLogin={this.onLogin} />
-                                    )} />
-                            <Route path="/secret"
-                                    render={() => (
-                                        <SecretPage isloggedIn={isloggedIn} />
-                                    )} />
+                            <Switch>
+                                <Route 
+                                    path="/" 
+                                    render={ () => <h2>Welcome to StarDB!</h2> }
+                                    exact />
+                               
+                                <Route path="/people/:id?" component={PeoplePage} />
+                                
+                                <Route path="/planets/" component={PlanetsPage} />
+                               
+                                <Route path="/starships/" exact component={StarshipsPage} />
+                                <Route  path="/starships/:id" 
+                                        render={({ match }) => {
+                                            const { id } = match.params;                                        
+                                            return <StarshipDetails item={id} />
+                                        }} />
+                                <Route path="/login"
+                                        render={() => (
+                                            <LoginPage
+                                                isloggedIn={isloggedIn}
+                                                onLogin={this.onLogin} />
+                                        )} />
+                                <Route path="/secret"
+                                        render={() => (
+                                            <SecretPage isloggedIn={isloggedIn} />
+                                        )} />
+                                {/* <Redirect to="/"/> */}
+                                <Route render={() => <h2>Page not Found</h2>} />
+                            </Switch>
                             
                             <div className="copyright">Copyright © 2019 Konstantin Modin 
                             All Rights Reserved. Designed with React</div>

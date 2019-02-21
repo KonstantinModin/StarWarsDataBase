@@ -22,7 +22,7 @@ const ItemList = (props) => {
 
     return (
         <ul className="item-list list-group">
-            {items.slice(0, 5)}
+            {items}
         </ul>
     );
 };

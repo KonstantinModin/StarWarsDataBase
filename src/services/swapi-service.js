@@ -68,6 +68,11 @@ export default class SwapiService {
             population: planet.population,
             rotationPeriod: planet.rotation_period,
             diameter: planet.diameter,
+			orbitalPeriod: planet.orbital_period,
+			climate: planet.climate,
+			gravity: planet.gravity,
+			terrain: planet.terrain,
+			surfaceWater: planet.surface_water,
             image: this.getPlanetImage(i)
         }
     };
@@ -79,6 +84,9 @@ export default class SwapiService {
             gender: person.gender,
             birthYear: person.birth_year,
             eyeColor: person.eye_color,
+			height: person.height,
+			mass: person.mass,
+			skinColor: person.skin_color,
             image: this.getPersonImage(i)
         }
     };
@@ -92,9 +100,12 @@ export default class SwapiService {
             manufacturer: starship.manufacturer,
             costInCredits: starship.cost_in_credits,
             length: starship.length,
+			speed: starship.max_atmosphering_speed,
             crew: starship.crew,
             passengers: starship.passengers,
             cargoCapacity: starship.cargoCapacity,
+			cons: starship.consumables,
+			mglt: starship.MGLT,
             image: this.getStarshipImage(i)
         }
     };
