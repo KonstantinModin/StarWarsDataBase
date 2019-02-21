@@ -14,7 +14,14 @@ import { StarshipDetails } from '../sw-components';
 export default class App extends Component {
     
     state = {
-        swapiService: new SwapiService()        
+        swapiService: new SwapiService(),
+        isloggedIn: false        
+    };
+
+    onLogin = () => {
+        this.setState({
+            isloggedIn: true
+        });
     };
     
     onServiceChange = () => {
@@ -29,6 +36,7 @@ export default class App extends Component {
     };
     
     render() {     
+        const { isloggedIn } = this.state;
         return (
             <ErrorBoundry>
                 <SwapiServiceProvider value={this.state.swapiService}>
@@ -63,12 +71,12 @@ export default class App extends Component {
                             <Route path="/login"
                                     render={() => (
                                         <LoginPage
-                                            isloggedIn={false}
-                                            onLogin={() => {}} />
+                                            isloggedIn={isloggedIn}
+                                            onLogin={this.onLogin} />
                                     )} />
                             <Route path="/secret"
                                     render={() => (
-                                        <SecretPage isloggedIn={false} />
+                                        <SecretPage isloggedIn={isloggedIn} />
                                     )} />
                             
                             <div className="copyright">Copyright © 2019 Konstantin Modin 
