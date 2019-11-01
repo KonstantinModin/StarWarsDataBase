@@ -21,6 +21,9 @@ export {
 
 const ItemDetails = (props) => {    
     const { image, name, children, item } = props;
+    const simpleThrow = () => {
+        throw new Error('Simple Error');
+    }
     
     return (
         <div className="item-details card">
@@ -37,6 +40,7 @@ const ItemDetails = (props) => {
                     }
                 </ul>
                 <ErrorButton />
+                <button onClick={simpleThrow}>Simple Throw</button>
             </div>
         </div>
     );
