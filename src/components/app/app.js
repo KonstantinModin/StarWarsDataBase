@@ -67,9 +67,9 @@ export default class App extends Component {
                                                 onLogin={this.onLogin} />
                                         )} />
                                 <Route path="/secret"
-                                        render={() => (
-                                            <SecretPage isloggedIn={isloggedIn} />
-                                        )} />
+                                        render={() => isloggedIn ? 
+                                                    <SecretPage isloggedIn={isloggedIn} /> :
+                                                    <Redirect to="/login" />}/>
                                 {/* <Redirect to="/"/> */}
                                 <Route render={() => <h2>Page not Found</h2>} />
                             </Switch>
