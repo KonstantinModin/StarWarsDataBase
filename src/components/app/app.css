@@ -1,15 +1,18 @@
 .border {
     border: 1px solid white;
 }
+
 .copyright {
     opacity: .3;    
     position: relative;
     top: 5em;
 }
+
 h2 {
     margin-left: 3rem;
     margin-bottom: 1rem;
 }
+
 .stardb-app {
     width: 98%;
 }
