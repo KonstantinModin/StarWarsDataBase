@@ -6,13 +6,11 @@ import DummySwapiService from '../../services/dummy-swapi-service';
 import { SwapiServiceProvider } from '../swapi-service-context';
 import { PeoplePage, PlanetsPage, StarshipsPage, LoginPage, SecretPage } from '../pages';
 import ErrorBoundry from '../error-boundry';
-
 import './app.css';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import { StarshipDetails } from '../sw-components';
 
-export default class App extends Component {
-    
+export default class App extends Component {    
     state = {
         swapiService: new SwapiService(),
         isloggedIn: false        
@@ -48,12 +46,9 @@ export default class App extends Component {
                                 <Route 
                                     path="/" 
                                     render={ () => <h2>Welcome to StarDB!</h2> }
-                                    exact />
-                               
-                                <Route path="/people/:id?" component={PeoplePage} />
-                                
-                                <Route path="/planets/" component={PlanetsPage} />
-                               
+                                    exact />                               
+                                <Route path="/people/:id?" component={PeoplePage} />                                
+                                <Route path="/planets/" component={PlanetsPage} />                               
                                 <Route path="/starships/" exact component={StarshipsPage} />
                                 <Route  path="/starships/:id" 
                                         render={({ match }) => {
@@ -72,8 +67,7 @@ export default class App extends Component {
                                                     <Redirect to="/login" />}/>
                                 {/* <Redirect to="/"/> */}
                                 <Route render={() => <h2>Page not Found</h2>} />
-                            </Switch>
-                            
+                            </Switch>                            
                             <div className="copyright">Copyright © 2019 Konstantin Modin 
                             All Rights Reserved. Designed with React</div>
                         </div>
