@@ -4,8 +4,7 @@ import ErrorBoundry from '../error-boundry';
 
 
 const WithDataDetails = (View) => {
-    return class extends Component {
-        
+    return class extends Component {        
         state = {
             item: null,
             loading: false  
@@ -26,9 +25,9 @@ const WithDataDetails = (View) => {
         
         updateItem = () => {
             this.turnOnSpinner();
-            const { item } = this.props;
-            
-            if (!item) return;        
+            const { item } = this.props;            
+            if (!item) return;  
+
             this.props.getData(item)
                 .then((item) => {
                     this.setState({
@@ -42,8 +41,8 @@ const WithDataDetails = (View) => {
             const { item, loading } = this.state;        
             if (!item) return <span>Select a item from a list</span>;        
             if (loading) return <Spinner />
+            
             const { name, image } = item;
-
             return (
                 <ErrorBoundry>
                     <View {...this.props} name={name} item={item} image={image}/>
@@ -51,7 +50,6 @@ const WithDataDetails = (View) => {
             );
         }
     }
-
 };
 
 export default WithDataDetails;
