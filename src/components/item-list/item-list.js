@@ -3,9 +3,7 @@ import PropTypes from 'prop-types';
 
 import './item-list.css';
 
-const ItemList = (props) => { 
-
-    const { data, onItemSelected, children: renderLabel } = props;
+const ItemList = ({ data, onItemSelected, children: renderLabel }) => {    
 
     const items = data.map((item) => {
         const { id } = item;
@@ -26,6 +24,7 @@ const ItemList = (props) => {
         </ul>
     );
 };
+
 ItemList.defaultProps = {
     onItemSelected: () => {}
 };
