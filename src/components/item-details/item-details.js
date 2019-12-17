@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ErrorButton from '../error-button';
 
 import './item-details.css';
