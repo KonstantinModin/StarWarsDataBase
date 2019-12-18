@@ -21,10 +21,12 @@
 .random-planet .list-group-item .term {
     margin-right: .5rem;
 }
+
 .box {
     display: flex;
     justify-content: center;
 }
+
 .random-planet h4 {
     margin-left: 1.5rem;
 }
