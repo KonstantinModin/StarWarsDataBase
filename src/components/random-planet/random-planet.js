@@ -5,8 +5,7 @@ import Spinner from '../spinner';
 import ErrorIndicator from '../error-indicator';
 import PropTypes from 'prop-types';
 
-export default class RandomPlanet extends Component {
-    
+export default class RandomPlanet extends Component {    
     static defaultProps = {
         updateInterval: 10000
     };
@@ -36,7 +35,7 @@ export default class RandomPlanet extends Component {
         });
     };
 
-    onError = (err) => {
+    onError = () => {
         this.setState({
             error: true,
             loading: false
@@ -74,27 +73,27 @@ export default class RandomPlanet extends Component {
 const PlanetView = ({ planet }) => {
     const { name, population, rotationPeriod, diameter, image } = planet;
     return (        
-            <div className="random-planet jumbotron rounded">
-                <img className="planet-image"
-                    src={image}
-                    alt="planet" />
-                <div>
-                    <h4>{name}</h4>
-                    <ul className="list-group list-group-flush">
-                        <li className="list-group-item">
-                            <span className="term">Population</span>
-                            <span>{population}</span>
-                        </li>
-                        <li className="list-group-item">
-                            <span className="term">Rotation Period</span>
-                            <span>{rotationPeriod}</span>
-                        </li>
-                        <li className="list-group-item">
-                            <span className="term">Diameter</span>
-                            <span>{diameter}</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>        
+        <div className="random-planet jumbotron rounded">
+            <img className="planet-image"
+                src={image}
+                alt="planet" />
+            <div>
+                <h4>{name}</h4>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item">
+                        <span className="term">Population</span>
+                        <span>{population}</span>
+                    </li>
+                    <li className="list-group-item">
+                        <span className="term">Rotation Period</span>
+                        <span>{rotationPeriod}</span>
+                    </li>
+                    <li className="list-group-item">
+                        <span className="term">Diameter</span>
+                        <span>{diameter}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>        
     );
 }
